@@ -1,5 +1,5 @@
 name = "rare-codec-api"
-main = "server/index.ts"
+main = "worker/index.ts"
 compatibility_date = "2024-12-01"
 
 [vars]

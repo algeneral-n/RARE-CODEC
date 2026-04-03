@@ -15,6 +15,10 @@ const SYSTEM_MODES: Record<LeftMode, string> = {
     designer: 'You are the RARE CODEC Designer. Suggest UI/UX improvements, color schemes, layouts, and design patterns. Provide CSS and component code.',
 }
 
+const API_BASE = import.meta.env.PROD
+    ? 'https://rare-codec-api.gm-ccc.workers.dev'
+    : ''
+
 export async function callAI(userMessage: string, mode: LeftMode): Promise<string> {
     const state = useStore.getState()
     const filesContext = Object.entries(state.files)
@@ -23,7 +27,7 @@ export async function callAI(userMessage: string, mode: LeftMode): Promise<strin
 
     // Try the backend API first
     try {
-        const res = await fetch('/api/ai', {
+        const res = await fetch(`${API_BASE}/api/ai`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

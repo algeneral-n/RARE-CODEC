@@ -31,16 +31,16 @@ export default function LeftPanel() {
                     <button
                         key={key}
                         onClick={() => setLeftMode(key)}
-                        className="flex-1 flex items-center justify-center gap-1.5 py-2.5 text-xs font-medium transition-colors relative"
+                        className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-medium transition-colors relative"
                         style={{
                             color: leftMode === key ? 'var(--accent)' : 'var(--text-secondary)',
                             background: leftMode === key ? 'var(--bg-tertiary)' : 'transparent'
                         }}
                     >
-                        <Icon size={14} />
+                        <Icon size={16} />
                         {label}
                         {key === 'debugger' && problems.length > 0 && (
-                            <span className="absolute top-1.5 right-2 w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-bold"
+                            <span className="absolute top-1.5 right-2 w-5 h-5 rounded-full text-[11px] flex items-center justify-center font-bold"
                                 style={{ background: 'var(--error)', color: '#fff' }}>
                                 {problems.length}
                             </span>

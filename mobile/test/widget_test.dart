@@ -11,7 +11,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:rare_codec_mobile/main.dart';
 
 void main() {
-  testWidgets('App renders with bottom navigation', (WidgetTester tester) async {
+  testWidgets('App renders with bottom navigation', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(const RareCodecApp());
 
     // Verify the app title is shown

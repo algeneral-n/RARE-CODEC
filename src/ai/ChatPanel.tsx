@@ -52,8 +52,8 @@ export default function ChatPanel() {
             {/* Mode badge */}
             <div className="px-3 py-1.5 flex items-center gap-2 border-b"
                 style={{ borderColor: 'var(--border)' }}>
-                <Sparkles size={12} style={{ color: 'var(--accent)' }} />
-                <span className="text-[11px] font-medium" style={{ color: 'var(--text-muted)' }}>
+                <Sparkles size={14} style={{ color: 'var(--accent)' }} />
+                <span className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>
                     AI — {modeLabel[leftMode]} Mode
                 </span>
                 <div className="flex-1" />
@@ -67,23 +67,23 @@ export default function ChatPanel() {
                     <div key={msg.id} className="animate-in">
                         <div className="flex items-start gap-2">
                             {/* Avatar */}
-                            <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0"
+                            <div className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0"
                                 style={{
                                     background: msg.role === 'user' ? 'var(--bg-tertiary)' :
                                         msg.role === 'system' ? 'rgba(239,68,68,0.15)' : 'rgba(99,102,241,0.15)',
                                 }}>
-                                {msg.role === 'user' ? <User size={12} style={{ color: 'var(--text-secondary)' }} /> :
-                                    msg.role === 'system' ? <Bot size={12} style={{ color: 'var(--error)' }} /> :
-                                        <Bot size={12} style={{ color: 'var(--accent)' }} />}
+                                {msg.role === 'user' ? <User size={16} style={{ color: 'var(--text-secondary)' }} /> :
+                                    msg.role === 'system' ? <Bot size={16} style={{ color: 'var(--error)' }} /> :
+                                        <Bot size={16} style={{ color: 'var(--accent)' }} />}
                             </div>
 
                             {/* Content */}
                             <div className="flex-1 min-w-0">
-                                <div className="text-[10px] mb-0.5 font-medium"
+                                <div className="text-xs mb-0.5 font-medium"
                                     style={{ color: 'var(--text-muted)' }}>
                                     {msg.role === 'user' ? 'You' : msg.role === 'system' ? 'System' : 'RARE AI'}
                                 </div>
-                                <div className="text-xs leading-relaxed whitespace-pre-wrap"
+                                <div className="text-sm leading-relaxed whitespace-pre-wrap"
                                     style={{
                                         color: msg.role === 'system' ? 'var(--error)' : 'var(--text-primary)',
                                     }}>
@@ -127,7 +127,7 @@ export default function ChatPanel() {
                         onChange={e => setInput(e.target.value)}
                         onKeyDown={handleKeyDown}
                         placeholder={`Ask the ${modeLabel[leftMode]}...`}
-                        className="flex-1 bg-transparent border-0 outline-none text-xs resize-none leading-5"
+                        className="flex-1 bg-transparent border-0 outline-none text-sm resize-none leading-6"
                         style={{ color: 'var(--text-primary)', maxHeight: 120 }}
                         rows={1}
                         onInput={e => {
@@ -149,7 +149,7 @@ export default function ChatPanel() {
                         <Send size={14} />
                     </button>
                 </div>
-                <div className="text-[10px] text-center mt-1.5" style={{ color: 'var(--text-muted)' }}>
+                <div className="text-xs text-center mt-1.5" style={{ color: 'var(--text-muted)' }}>
                     RARE AI • Press Enter to send, Shift+Enter for new line
                 </div>
             </div>

@@ -21,14 +21,14 @@ export default function TopBar() {
     } = useStore()
 
     return (
-        <header className="h-11 flex items-center gap-1 px-3 border-b"
+        <header className="h-12 flex items-center gap-2 px-4 border-b"
             style={{ background: 'var(--bg-secondary)', borderColor: 'var(--border)' }}>
 
             {/* Logo + Project */}
             <div className="flex items-center gap-2 mr-3">
-                <div className="w-6 h-6 rounded-md flex items-center justify-center font-black text-xs"
+                <div className="w-7 h-7 rounded-md flex items-center justify-center font-black text-sm"
                     style={{ background: 'var(--accent)' }}>R</div>
-                <span className="font-semibold text-sm truncate max-w-[140px]">{projectName}</span>
+                <span className="font-semibold text-base truncate max-w-[180px]">{projectName}</span>
             </div>
 
             <div className="h-5 w-px mx-1" style={{ background: 'var(--border)' }} />

@@ -6,7 +6,7 @@ import { useStore } from './store/useStore'
 
 export default function App() {
     const fullScreen = useStore(s => s.fullScreen)
-    const [leftWidth, setLeftWidth] = useState(420)
+    const [rightWidth, setRightWidth] = useState(480)
     const dragging = useRef(false)
     const containerRef = useRef<HTMLDivElement>(null)
 
@@ -17,7 +17,7 @@ export default function App() {
             if (!dragging.current || !containerRef.current) return
             const rect = containerRef.current.getBoundingClientRect()
             const x = e.clientX - rect.left
-            setLeftWidth(Math.max(320, Math.min(x, rect.width - 400)))
+            setRightWidth(Math.max(380, Math.min(rect.width - x, rect.width - 400)))
         }
         const onUp = () => { dragging.current = false }
         window.addEventListener('mousemove', onMove)
@@ -43,12 +43,12 @@ export default function App() {
         <div className="h-full flex flex-col">
             <TopBar />
             <div ref={containerRef} className="flex-1 flex overflow-hidden">
-                <div style={{ width: leftWidth, minWidth: 320 }} className="flex-shrink-0 overflow-hidden">
-                    <LeftPanel />
-                </div>
-                <div className="split-resizer" onMouseDown={onMouseDown} />
                 <div className="flex-1 overflow-hidden">
                     <RightPanel />
+                </div>
+                <div className="split-resizer" onMouseDown={onMouseDown} />
+                <div style={{ width: rightWidth, minWidth: 380 }} className="flex-shrink-0 overflow-hidden">
+                    <LeftPanel />
                 </div>
             </div>
         </div>

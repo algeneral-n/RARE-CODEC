@@ -25,12 +25,12 @@ export default function RightPanel() {
                     <button
                         key={key}
                         onClick={() => setRightTab(key)}
-                        className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium transition-colors relative"
+                        className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors relative"
                         style={{
                             color: rightTab === key ? 'var(--text-primary)' : 'var(--text-muted)',
                         }}
                     >
-                        <Icon size={13} />
+                        <Icon size={16} />
                         {label}
                         {rightTab === key && (
                             <div className="absolute bottom-0 left-1 right-1 h-0.5 rounded-t"
